@@ -1,0 +1,87 @@
+@charset "UTF-8";
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+font-family:monospace;
+font-weight: 900;
+background-color: #4e93bb;
+}
+
+.card{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    /* Utilize transform-style: preserve-3d; para permitir que o elemento se comporte como um elemento 3d*/
+    /* o padrão é  transform-style: flat;*/
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.cardFront, .cardBack{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px rgba(2, 25, 44, 0.801);
+    justify-content: center;
+    align-items: center;
+    /* Utilize backface-visibility: hidden; para deixar o visibility: hidden; quando o elemento estiver rotacionado */
+    backface-visibility: hidden;
+}
+.flip{
+    /* Utilize transform: rotateY(graus); para girar um elemento no seu eixo y*/
+    transform: rotateY(180deg);
+}
+
+.cardFront{
+    background-color: #101c2c;
+    transform: rotateY(180deg);
+}
+
+.cardBack{
+    background-color: #184291;
+    font-size: 35px;
+    color: white;
+}
+
+#gameOver{
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: rgb(245, 168, 27);
+    font-size: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0%;
+    left: 0%;
+}
+#restart{
+    padding: 20px;
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    margin-top: 25px;
+    outline: none;
+    transition: .3s;
+}
+#restart:hover{
+    cursor: pointer;
+    background-color:#7e4a8a ;
+    color: white;
+}
+#gameBoard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 50px;
+}
